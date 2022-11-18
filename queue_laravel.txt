@@ -1,0 +1,29 @@
+php artisan queue:table  --- gerekli table migrationlar oluşur
+sonra migrate:refresh
+
+
+php artisan make:job SomeJob
+
+construct da içeri ne göndermek istiyorsan onu alır 
+
+controller function içinde Job:dispatch('veriler buraya ... ');
+public $tries = 3;  // kaç kez denensin
+
+$this->delay(10);  //// 10sn bekle
+
+
+  SendInvoiceEmail::dispatch($faker->sentence);
+->onQueue('high')   önceliği işaretler
+env dosyaısnda 
+QUEUE_CONNECTION=sync -> database olarak değişirse db ye yazar
+php artisan queue:work dedidğnde kuyruğu çalıştırı
+
+
+->onQueue('high')   sadece bu öncelilleri çalıştırı
+
+
+
+
+
+
+

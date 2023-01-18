@@ -1,0 +1,17 @@
+config/logging.php
+
+
+'cronjob_watcher'=>[
+
+            'driver'=>'single',
+            // 'tap'=>[],
+            'path'=>storage_path('logs/cronjob_watcher/'.date('YmdHis').'.log'),
+            'level'=>'debug'
+        ],
+
+
+
+Log::channel('cronjob_watcher')->info($start."--".$end);
+
+
+

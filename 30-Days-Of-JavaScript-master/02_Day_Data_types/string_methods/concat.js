@@ -2,5 +2,5 @@
 // string.concat(substring, substring, substring)
 let string = '30'
 console.log(string.concat("Days", "Of", "JavaScript")) // 30DaysOfJavaScript
-let country = 'Fin'
+let country = 'd'
 console.log(country.concat("land")) // Finland

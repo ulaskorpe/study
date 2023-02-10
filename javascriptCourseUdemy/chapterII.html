@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chapter II</title>
+    <script src="js/countdown.js"></script>
+    <script src="js/callbacks.js"></script>
+    <script>
+ 
+        app2.add([3,45,2,32],function(result){
+         
+           console.log(result);
+        });
+
+         
+    </script>
+</head>
+<body>
+
+    <input type="number" id="startAt">-
+    <input type="number" id="endAt">
+<button onclick="app.countdown({startAt:document.getElementById('startAt').value,endAt:document.getElementById('endAt').value})">countdown</button>
+
+    <h1 id="show"></h1>
+    <p>in js almost everything is an object</p>
+</body>
+</html>

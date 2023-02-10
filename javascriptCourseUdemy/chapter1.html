@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chapter I </title>
+    <script>
+
+var money ='43.2',name ='ulass',availableToday= true ;
+console.log(parseFloat(money));
+
+
+function ch(){
+    var c = confirm("are you sure???");
+    console.log(c);
+    var txt = (c) ? "you are sure ":"not sure";
+    document.getElementById("show").innerText = txt;
+
+}
+
+function pr(){
+    var name = prompt("plz enter name");
+    document.getElementById("show").innerText = name;
+}
+    </script>
+</head>
+<body>
+    <h1 id="show"></h1>
+    <button onclick="ch()">CLICK</button>
+    <button onclick="pr()">PROMT</button>
+    <p>var name = "xx" ; that as global variable <br>
+        parseInt , parseFloat
+      
+    </p>
+</body>
+</html>

@@ -1,0 +1,20 @@
+https://www.youtube.com/watch?v=UjA-16diixc&t=800s&ab_channel=CodeWithDary
+
+
+unit test : will verify that individual units of code work as expected
+feature test : tests the way individual units work together and pass msg
+regression test:  describes exactly what a user should be able to do
+
+http test : allows you make simple http reqs
+authentication responses : app tsts in auth an authorization
+
+db test : toos and assertion to make it easier to test db driven apps
+
+
+createsapplication is a trait , used by abstract class testCase , every test exdends from testCase
+
+./vendor/bin/phpunit
+
+
+assertSee('bi yazı')   varmı yok mu view da
+

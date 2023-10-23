@@ -1,0 +1,44 @@
+config/cache.php dosyasından ayarlanır  cache dosyaları "file" driver ise 
+storage/framework/cache altına kaydedilir
+
+.env de CACHE_DRIVER=file  , array de olabilir database de 
+
+db kullanmak için php artisan cache:table   command
+
+redis / memcached de var bunlar package kurmak gerek
+
+cache session gibidir , keyler ile çalışır 
+
+ $period = Cache::get('period');
+        if(empty($period)){
+
+        $end = Carbon::now()->subMonth(2);
+        $start = Carbon::parse($end)->subYear()->addMonth();
+           $period =  CarbonPeriod::create($start, '1 month',$end );
+           Cache::put('period',$period,now()->addYear()); /// key - value - expires 
+        }
+
+Cache::add('key',$value); // adds value to a cache
+Cache::forever('key',$value)  // never expire
+Cache::forget('key') /// remove from stored location
+
+Cache::flush() /// delete all
+php artisan cache:clear
+
+Cache::has('key') // does exist ? 
+Cache::increment('key')  //++ , decrement as well
+
+php artisan make:model MODELNAME -f factory -m migration -r Resourcecontroller -fmr
+
+ $table->foreign('user_id')->references('id')->on('users');
+
+env de 
+
+CACHE_DRIVER=database 
+
+php artisan cache:table  -> db de gerekli tabloları yaratır , cache alanı default file 
+
+memcached :  paket yüklemek gerek
+
+
+

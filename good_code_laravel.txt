@@ -1,0 +1,6 @@
+Single responsibility principle (Tek sorumluluk prensibi)
+Bir class ya da method'un tek bir görevi ve amacı olmalıdır.
+
+
+Büyük modeller, çirkin controllerlar
+Bütün database ile ilişkili Query Builder ve raw SQL işlemlerini Eloquent modelinde ya da Repository class'ında tanımlayarak kullanın.

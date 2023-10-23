@@ -1,0 +1,55 @@
+public function testCreate()
+{
+    $response = $this->post('/my-module', [
+        'name' => 'My Test Module',
+        'description' => 'This is a test module',
+    ]);
+
+    $response->assertStatus(201);
+    $this->assertDatabaseHas('my_modules', [
+        'name' => 'My Test Module',
+        'description' => 'This is a test module',
+    ]);
+}
+
+public function testRead()
+{
+    $module = factory(MyModule::class)->create();
+
+    $response = $this->get('/my-module/' . $module->id);
+
+    $response->assertStatus(200)
+             ->assertJson([
+                 'name' => $module->name,
+                 'description' => $module->description,
+             ]);
+}
+
+public function testUpdate()
+{
+    $module = factory(MyModule::class)->create();
+
+    $response = $this->put('/my-module/' . $module->id, [
+        'name' => 'My Updated Test Module',
+        'description' => 'This is an updated test module',
+    ]);
+
+    $response->assertStatus(200);
+    $this->assertDatabaseHas('my_modules', [
+        'id' => $module->id,
+        'name' => 'My Updated Test Module',
+        'description' => 'This is an updated test module',
+    ]);
+}
+
+public function testDelete()
+{
+    $module = factory(MyModule::class)->create();
+
+    $response = $this->delete('/my-module/' . $module->id);
+
+    $response->assertStatus(204);
+    $this->assertDatabaseMissing('my_modules', [
+        'id' => $module->id,
+    ]);
+}

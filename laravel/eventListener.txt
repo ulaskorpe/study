@@ -1,0 +1,40 @@
+php artisan make:event SmtHappened 
+php artisan make:listener ListenToSmt --event=SmtHappened 
+
+
+
+
+ // fire event once user has been created  +  use that in an observer better
+        event(new UserRegistered($user));
+
+///////  this is event holder 
+   public $user;
+
+    public function __construct(User $user)
+    {
+      $this->user = $user;
+    }
+By declaring the $user variable public, it will be passed to the listeners and the listeners can in turn do whatever that’s necessary with it. Next, the event listeners will receive the event instance in their handle method. Within the handle method, we can perform any actions necessary to respond to the event:
+
+
+controller@ function -> fires event (triggers objs observer ) (send entity as obj ) -> do smt 
+
+providers / eventserviceprovider.php 
+
+
+  protected $listen = [
+        Registered::class => [
+            SendEmailVerificationNotification::class,
+        ],
+        SmtHappenedEvent::class =>[
+            ListenerEvent::class,
+		SomeOtherListener::class 
+			ListensAllTheClassesHere:class
+        ]
+    ];
+
+
+Conclusion
+In this post we have been able to understand what event driven programming is, what event driven applications are and what Laravel events are. We also looked at possible advantages of event driven applications. But like pretty much every programming concept that has positive effects, it also tends to have downsides. The major downside to event-driven applications is that it can be hard to really understand the flow of the application. Take our implementation above for example, someone (say a new developer) going through the register method might not know we are sending a welcome mail to the new user and also signing them to a newsletter.
+
+So I would say you use event driven-approach in your Laravel applications as creative as possible and not over do it. Generally, I think event-driven Laravel applications are cool ?. What do you think? Let’s have your thought in the comment below.

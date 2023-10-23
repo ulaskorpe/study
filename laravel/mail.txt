@@ -1,0 +1,4 @@
+Mail::to($invitation->email)->send(new MembershipInvitationEmail(false, $invitation->membership()->first()->brand()->first()->name, $link));
+
+
+

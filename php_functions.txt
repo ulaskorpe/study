@@ -1,0 +1,24 @@
+    private function checkData($data){
+
+        $txt = "";
+        foreach($data as $d){
+            foreach ($d as $item){
+                $txt.=$item.";";
+            }
+
+        }
+         $array = explode(";",$txt);
+        return $array;
+    }
+
+
+    private function makeArray($array){
+        //$result = array();
+        $txt = "";
+        for($i=0;$i<count($array);$i++){
+            //$result[$i]=$array[$i];
+            $txt.=$array[$i].";";
+        }
+        return $txt;
+
+    }

@@ -1,0 +1,35 @@
+
+
+
+        ///connect-testing.secupay-ag.de/api/v2/Payment/Transactions/PCI_2FY48DT0P2X6G636N5QK64UK2ADZAZ
+        $crl = curl_init('connect-testing.secupay-ag.de/api/v2/Payment/Transactions/'.$pci_id);
+        curl_setopt($crl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($crl, CURLINFO_HEADER_OUT, true);
+        curl_setopt($crl, CURLOPT_CUSTOMREQUEST, "GET");
+        //curl_setopt($crl, CURLOPT_POST, true);
+       // curl_setopt($crl, CURLOPT_POSTFIELDS,json_encode($array));
+        curl_setopt($crl, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json',
+                'Authorization: Bearer '.$this->getAccessKey()
+            )
+        );
+        $result = curl_exec($crl);
+        $array =  json_decode($result);
+
+        if(!empty($array->error)){
+            $status_code = 400;
+            $resultArray['status'] = false;
+            $resultArray['data']  = $array;
+        }else{
+            $status_code = 200;
+            $resultArray['status'] = false;
+            $resultArray['data']  = $array;
+
+        }
+
+        $faker = Factory::create();
+        $tmp = new Tmp();
+        $tmp->data= date('ymdHis');
+        $tmp->text ='success-mesage';
+        $tmp->type = 66;
+        $tmp->save();

@@ -1,0 +1,14 @@
+laravel mysql DB 
+laravel MongoDB
+
+memcache laravel 
+
+laravel command
+
+
+php command 
+
+nodejs  - socket helper
+
+mail gönder - mailer 
+

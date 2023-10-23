@@ -32,6 +32,7 @@ php artisan make:model MODELNAME -f factory -m migration -r Resourcecontroller -
 
  $table->foreign('user_id')->references('id')->on('users');
 
+<<<<<<< HEAD
 env de 
 
 CACHE_DRIVER=database 
@@ -39,6 +40,8 @@ CACHE_DRIVER=database
 php artisan cache:table  -> db de gerekli tabloları yaratır , cache alanı default file 
 
 memcached :  paket yüklemek gerek
+=======
+>>>>>>> 399805ac16d6f4ad4fd901e3ef99956886f2d332
 
 
 
